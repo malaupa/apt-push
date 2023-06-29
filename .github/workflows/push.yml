@@ -16,6 +16,7 @@ jobs:
         shell: bash
         id: pull_package
         run: |+
+          echo ${SUPPORTED_VERSIONS[*]}
           if ! [[ ${SUPPORTED_VERSIONS[*]} =~ "${{ github.event.client_payload.version }}" ]] ; then
             exit 1
           fi
